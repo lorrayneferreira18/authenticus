@@ -22,6 +22,7 @@ const icons = {
     lib: Feather,
     route: 'Home',
     name: 'home'
+
   },
   Faq: {
     lib: AntDesign,
