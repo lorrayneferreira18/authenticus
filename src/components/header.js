@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#c1c1c1'
   },
   titlle: {
-    fontSize: 29
+    fontSize: 30
   }
 
 })
