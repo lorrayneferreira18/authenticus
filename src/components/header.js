@@ -2,15 +2,13 @@ import { useNavigation } from '@react-navigation/native'
 import { View, StyleSheet, Text, TouchableNativeFeedback } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 
-export default function Header() {
+export default function Header () {
   const navigation = useNavigation()
 
   return (
     <View style={styles.container}>
       <Text style={styles.titlle}>Authenticus</Text>
-      <TouchableNativeFeedback onPress={() => navigation.navigate('QrCode')}>
-        <AntDesign name='qrcode' size={26} />
-      </TouchableNativeFeedback>
+
     </View>
   )
 }
