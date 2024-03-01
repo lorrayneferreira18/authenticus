@@ -1,66 +1,90 @@
-import { StyleSheet, Text, View, Platform, Image, TouchableNativeFeedback } from 'react-native'
+import { StyleSheet, Text, View, Platform, Image, TouchableNativeFeedback, TouchableOpacity } from 'react-native'
 import Header from '../components/header'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useQrCode } from '../store'
 import { fonts } from '../constants/fonts'
 import Icon from '../../assets/icon.png'
+import React, { useState } from 'react'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import { useNavigation } from '@react-navigation/native'
 
 const HomePage = () => {
   const qrcode = useQrCode((state) => state.qrcode)
   const navigation = useNavigation()
+  const [isVisible, setIsVisible] = useState(true)
 
+  const handleTextClick = () => {
+    setIsVisible(false)
+  }
   return (
-    <SafeAreaView style={styles.container}>
-      <Header />
-      <Text style={styles.body}>
-        <TouchableNativeFeedback onPress={() => navigation.navigate('QrCode')}>
-          <AntDesign style={styles.qrCode} size='200' name='qrcode' />
-        </TouchableNativeFeedback>
-        <Text style={styles.explic}>You have no downloads</Text>
-        <Text style={styles.description}>{qrcode}</Text>
-      </Text>
 
-    </SafeAreaView>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        {/* Insira aqui o nome e a logo do seu aplicativo */}
+        <Text style={styles.appName}>Authenticus</Text>
+        <Image
+          source={require('../../assets/icon.png')}
+          style={styles.logo}
+        />
+      </View>
+      <View style={styles.body}>
+        <SafeAreaView style={styles.container}>
+          <Text style={styles.body}>
+            <TouchableNativeFeedback onPress={() => navigation.navigate('QrCode')}>
+              <AntDesign style={styles.image} size='200' name='qrcode' />
+            </TouchableNativeFeedback>
+            <Text style={styles.text}>{qrcode}</Text>
+          </Text>
+
+        </SafeAreaView>
+        {isVisible && (
+          <TouchableOpacity onPress={handleTextClick}>
+            <Text style={styles.text}>Clique no QrCode e inicie a verificação</Text>
+          </TouchableOpacity>
+        )}
+      </View>
+    </View>
 
   )
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
-    marginTop: '1%',
-    alignItems: 'center'
-  },
-  body: {
-    width: '100%',
-    height: ' 100%',
-    display: 'flex',
-    backgroundColor: '#03b8cf'
-  },
-  description: {
-    textAlign: 'center',
-    fontSize: 24
-  },
-  qrCode: {
-    alignItems: 'center',
-    borderWidth: 2,
-    height: 100,
-    justifyContent: 'center',
-    marginBottom: '50%',
-    marginTop: 48,
-    width: 100,
     backgroundColor: '#fff'
   },
-  explic: {
-    fontSize: 18,
-    marginBottom: 16,
-    textAlign: 'center',
-    width: 300
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 20,
+    marginTop: 20,
+    backgroundColor: '#03b8cf'
+  },
+  appName: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#fff',
+    marginRight: 10
+  },
+  logo: {
+    width: 40,
+    height: 40
+  },
+  body: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  image: {
+    width: 200,
+    height: 200,
+    marginBottom: 20,
+    color: '#6c13c3'
+  },
+  text: {
+    fontSize: 24,
+    color: '#6c13c3'
   }
-
 })
 
 export default HomePage
