@@ -13,6 +13,7 @@ import FaqPage from '../pages/faq'
 import ProfilePage from '../pages/profile'
 import ConfigurationPage from '../pages/configuration'
 import QrCodePage from '../pages/qrcode'
+import returnQrCode from '../pages/returnQrCode'
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()

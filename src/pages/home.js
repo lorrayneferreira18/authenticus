@@ -20,7 +20,6 @@ const HomePage = () => {
 
     <View style={styles.container}>
       <View style={styles.header}>
-        {/* Insira aqui o nome e a logo do seu aplicativo */}
         <Text style={styles.appName}>Authenticus</Text>
         <Image
           source={require('../../assets/icon.png')}
@@ -28,20 +27,13 @@ const HomePage = () => {
         />
       </View>
       <View style={styles.body}>
-        <SafeAreaView style={styles.container}>
-          <Text style={styles.body}>
-            <TouchableNativeFeedback onPress={() => navigation.navigate('QrCode')}>
-              <AntDesign style={styles.image} size='200' name='qrcode' />
-            </TouchableNativeFeedback>
-            <Text style={styles.text}>{qrcode}</Text>
-          </Text>
-
-        </SafeAreaView>
-        {isVisible && (
-          <TouchableOpacity onPress={handleTextClick}>
-            <Text style={styles.text}>Clique no QrCode e inicie a verificação</Text>
-          </TouchableOpacity>
-        )}
+        <Text style={styles.description}>{qrcode}</Text>
+        <TouchableNativeFeedback onPress={() => navigation.navigate('QrCode')}>
+          <AntDesign style={styles.qrCode} size='200' name='qrcode' />
+        </TouchableNativeFeedback>
+        <TouchableOpacity>
+          <Text style={styles.text}>Clique no QrCode e inicie a verificação</Text>
+        </TouchableOpacity>
       </View>
     </View>
 
@@ -78,8 +70,7 @@ const styles = StyleSheet.create({
   image: {
     width: 200,
     height: 200,
-    marginBottom: 20,
-    color: '#6c13c3'
+    marginBottom: 20
   },
   text: {
     fontSize: 24,
