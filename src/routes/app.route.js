@@ -13,7 +13,7 @@ import FaqPage from '../pages/faq'
 import ProfilePage from '../pages/profile'
 import ConfigurationPage from '../pages/configuration'
 import QrCodePage from '../pages/qrcode'
-import returnQrCode from '../pages/returnQrCode'
+import ReturnQrCode from '../pages/returnQrCode'
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -39,6 +39,11 @@ const icons = {
     lib: Feather,
     route: 'Configuration',
     name: 'settings'
+  },
+  ReturnQrCode: {
+    lib: AntDesign,
+    route: 'qrcode',
+    name: 'qrcode'
   }
 }
 
@@ -63,9 +68,10 @@ const BottomNavigator = () => {
       })}
     >
       <Tab.Screen name='Home' component={HomePage} />
-      <Tab.Screen name='Faq' component={FaqPage} />
-      <Tab.Screen name='Profile' component={ProfilePage} />
-      <Tab.Screen name='Configuration' component={ConfigurationPage} />
+      <Tab.Screen name='ReturnQrCode' options={{ title: 'QrCode' }} component={ReturnQrCode} />
+      <Tab.Screen name='Faq' options={{ title: 'Sobre' }} component={FaqPage} />
+      <Tab.Screen name='Profile' options={{ title: 'Perfil' }} component={ProfilePage} />
+      <Tab.Screen name='Configuration' options={{ title: 'Configuração' }} component={ConfigurationPage} />
     </Tab.Navigator>
   )
 }

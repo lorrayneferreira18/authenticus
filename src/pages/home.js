@@ -16,6 +16,11 @@ const HomePage = () => {
   const handleTextClick = () => {
     setIsVisible(false)
   }
+
+  React.useEffect(() => {
+    if (qrcode?.length > 0) navigation.navigate('ReturnQrCode')
+  }, [qrcode])
+  console.log(qrcode)
   return (
 
     <View style={styles.container}>
@@ -27,7 +32,6 @@ const HomePage = () => {
         />
       </View>
       <View style={styles.body}>
-        <Text style={styles.description}>{qrcode}</Text>
         <TouchableNativeFeedback onPress={() => navigation.navigate('QrCode')}>
           <AntDesign style={styles.qrCode} size='200' name='qrcode' />
         </TouchableNativeFeedback>
