@@ -33,7 +33,7 @@ const HomePage = () => {
       </View>
       <View style={styles.body}>
         <TouchableNativeFeedback onPress={() => navigation.navigate('QrCode')}>
-          <AntDesign style={styles.qrCode} size='200' name='qrcode' />
+          <AntDesign style={styles.qrCode} size={200} name='qrcode' />
         </TouchableNativeFeedback>
         <TouchableOpacity>
           <Text style={styles.text}>Clique no QrCode e inicie a verificação</Text>
