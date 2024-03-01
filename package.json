@@ -19,15 +19,52 @@
     "expo-status-bar": "~1.11.1",
     "react": "18.2.0",
     "react-native": "0.73.4",
+<<<<<<< HEAD
     "react-native-paper": "^5.12.3",
     "react-native-safe-area-context": "^4.9.0",
     "react-native-screens": "^3.29.0",
     "react-native-vector-icons": "^10.0.3",
     "typescript": "^5.3.0",
     "zustand": "^4.5.1"
+=======
+    "expo-barcode-scanner": "~12.9.3"
+>>>>>>> aeda976230785236038e957c9a3cfdf2899ab4a5
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
   },
+  "expo": {
+    "plugins": [
+      [
+        "expo-barcode-scanner",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access camera."
+        }
+      ]
+    ]
+  },
+  "expo": {
+    "ios": {
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to scan barcodes on event tickets."
+      }
+    }
+  },
+    "expo": {
+      "android": {
+        "blockedPermissions": ["android.permission.RECORD_AUDIO"]
+      }
+    },  
+    "expo": {
+      "plugins": [
+        [
+          "expo-media-library",
+          {
+            "photosPermission": "Allow $(PRODUCT_NAME) to access your photos.",
+            "savePhotosPermission": "Allow $(PRODUCT_NAME) to save photos."
+          }
+        ]
+      ]
+    },
   "private": true
 }
