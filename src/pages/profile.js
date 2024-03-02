@@ -1,7 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native'
-import HeaderGlobal from '../components/headerGlobal'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { Image, ScrollView, StyleSheet, Text, View } from 'react-native'
 
 const ProfilePage = () => {
   // Dados do usuário (substitua por seus próprios dados)
@@ -17,32 +15,33 @@ const ProfilePage = () => {
     <View style={styles.container}>
       <View style={styles.profileContainer}>
         <Image
-          source={require('../../assets/fotoPerfil.png')}
+          source={require('../../assets/fotoPerfil.jpg')}
           style={styles.profileImage}
         />
       </View>
-      <View style={styles.infoCard}>
-        <Text style={styles.cardTitle}>Nome</Text>
-        <Text style={styles.cardText}>{userData.nome}</Text>
-      </View>
-      <View style={styles.infoCard}>
-        <Text style={styles.cardTitle}>Email</Text>
-        <Text style={styles.cardText}>{userData.email}</Text>
-      </View>
-      <View style={styles.infoCard}>
-        <Text style={styles.cardTitle}>Idade</Text>
-        <Text style={styles.cardText}>{userData.idade}</Text>
-      </View>
-      <View style={styles.infoCard}>
-        <Text style={styles.cardTitle}>Localização</Text>
-        <Text style={styles.cardText}>{userData.localizacao}</Text>
-      </View>
-      <View style={styles.infoCard}>
-        <Text style={styles.cardTitle}>Profissão</Text>
-        <Text style={styles.cardText}>{userData.profissao}</Text>
-      </View>
+      <ScrollView>
+        <View style={styles.infoCard}>
+          <Text style={styles.cardTitle}>Nome</Text>
+          <Text style={styles.cardText}>{userData.nome}</Text>
+        </View>
+        <View style={styles.infoCard}>
+          <Text style={styles.cardTitle}>Email</Text>
+          <Text style={styles.cardText}>{userData.email}</Text>
+        </View>
+        <View style={styles.infoCard}>
+          <Text style={styles.cardTitle}>Idade</Text>
+          <Text style={styles.cardText}>{userData.idade}</Text>
+        </View>
+        <View style={styles.infoCard}>
+          <Text style={styles.cardTitle}>Localização</Text>
+          <Text style={styles.cardText}>{userData.localizacao}</Text>
+        </View>
+        <View style={styles.infoCard}>
+          <Text style={styles.cardTitle}>Profissão</Text>
+          <Text style={styles.cardText}>{userData.profissao}</Text>
+        </View>
+      </ScrollView>
     </View>
-
   )
 }
 
