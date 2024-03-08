@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native'
 import { View, StyleSheet, Text, TouchableNativeFeedback } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 
-export default function Header () {
+export default function Header() {
   const navigation = useNavigation()
 
   return (

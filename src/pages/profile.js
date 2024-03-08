@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Image, ScrollView, StyleSheet, TouchableOpacity, Text, View } from 'react-native'
 
 const ProfilePage = () => {
   // Dados do usuário (substitua por seus próprios dados)
@@ -12,35 +12,47 @@ const ProfilePage = () => {
   }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.profileContainer}>
+    <View style={styles.body}>
+      <View style={styles.header}>
         <Image
-          source={require('../../assets/fotoPerfil.jpg')}
-          style={styles.profileImage}
+          source={require('../../assets/icon.png')}
+          style={styles.logo}
         />
+        <Text style={styles.appName}>Authenticus</Text>
       </View>
-      <ScrollView>
-        <View style={styles.infoCard}>
-          <Text style={styles.cardTitle}>Nome</Text>
-          <Text style={styles.cardText}>{userData.nome}</Text>
+      <View style={styles.container}>
+        <View style={styles.profileContainer}>
+          <Image
+            source={require('../../assets/fotoPerfil.jpg')}
+            style={styles.profileImage}
+          />
         </View>
-        <View style={styles.infoCard}>
-          <Text style={styles.cardTitle}>Email</Text>
-          <Text style={styles.cardText}>{userData.email}</Text>
-        </View>
-        <View style={styles.infoCard}>
-          <Text style={styles.cardTitle}>Idade</Text>
-          <Text style={styles.cardText}>{userData.idade}</Text>
-        </View>
-        <View style={styles.infoCard}>
-          <Text style={styles.cardTitle}>Localização</Text>
-          <Text style={styles.cardText}>{userData.localizacao}</Text>
-        </View>
-        <View style={styles.infoCard}>
-          <Text style={styles.cardTitle}>Profissão</Text>
-          <Text style={styles.cardText}>{userData.profissao}</Text>
-        </View>
-      </ScrollView>
+        <ScrollView>
+          <View style={styles.infoCard}>
+            <Text style={styles.cardTitle}>Nome</Text>
+            <Text style={styles.cardText}>{userData.nome}</Text>
+          </View>
+          <View style={styles.infoCard}>
+            <Text style={styles.cardTitle}>Email</Text>
+            <Text style={styles.cardText}>{userData.email}</Text>
+          </View>
+          <View style={styles.infoCard}>
+            <Text style={styles.cardTitle}>Idade</Text>
+            <Text style={styles.cardText}>{userData.idade}</Text>
+          </View>
+          <View style={styles.infoCard}>
+            <Text style={styles.cardTitle}>Localização</Text>
+            <Text style={styles.cardText}>{userData.localizacao}</Text>
+          </View>
+          <View style={styles.infoCard}>
+            <Text style={styles.cardTitle}>Profissão</Text>
+            <Text style={styles.cardText}>{userData.profissao}</Text>
+          </View>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Sair</Text>
+          </TouchableOpacity>
+        </ScrollView>
+      </View>
     </View>
   )
 }
@@ -75,6 +87,46 @@ const styles = StyleSheet.create({
   },
   cardText: {
     fontSize: 16
+  },
+  body: {
+    flex: 1
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingVertical: 15,
+    backgroundColor: '#03b8cf'
+  },
+  appName: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginTop: 25,
+    color: '#000',
+    marginRight: 10
+  },
+  logo: {
+    width: 50,
+    height: 50,
+    marginTop: 14,
+    resizeMode: 'contain',
+    alignItems: 'flex-end'
+  },
+  button: {
+    backgroundColor: '#03b8cf',
+    borderRadius: 10,
+    paddingVertical: 15,
+    alignItems: 'center'
+  },
+  buttonText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#fff'
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    color: '#6c13c3'
   }
 })
 

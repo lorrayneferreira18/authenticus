@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, Image, ScrollView, StyleSheet } from 'react-native'
 import { useQrCode } from '../store'
 
-export default function QRCodeInfoScreen () {
+export default function QRCodeInfoScreen() {
   // Simulação de dados do QRCode lido
   const [qrCodeData, setQRCodeData] = useState({
     nome: '',
@@ -21,34 +21,46 @@ export default function QRCodeInfoScreen () {
       ano: '2024',
       dataHora: new Date().toLocaleString(),
       quantidadeLida: 5,
-      localizacao: 'Local A'
+      localizacao: 'Belo Horizonte'
     }
     setQRCodeData(qrCodeInfo)
   }, [])
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Sobre o QrCode</Text>
-      <View style={styles.card}>
-        <Text style={styles.label}>Nome do QR Code:</Text>
-        <Text style={styles.info}>{qrcode}</Text>
+    <View style={styles.body}>
+      <View style={styles.header}>
+        <Image
+          source={require('../../assets/icon.png')}
+          style={styles.logo}
+        />
+        <Text style={styles.appName}>Authenticus</Text>
       </View>
-      <View style={styles.card}>
-        <Text style={styles.label}>Ano:</Text>
-        <Text style={styles.info}>{qrCodeData.ano}</Text>
+      <View style={styles.container}>
+        <Text style={styles.title}>Sobre o QrCode</Text>
+        <ScrollView>
+          <View style={styles.card}>
+            <Text style={styles.label}>Nome do QR Code:</Text>
+            <Text style={styles.info}>{qrcode}</Text>
+          </View>
+          <View style={styles.card}>
+            <Text style={styles.label}>Ano:</Text>
+            <Text style={styles.info}>{qrCodeData.ano}</Text>
+          </View>
+          <View style={styles.card}>
+            <Text style={styles.label}>Data e Hora:</Text>
+            <Text style={styles.info}>{qrCodeData.dataHora}</Text>
+          </View>
+          <View style={styles.card}>
+            <Text style={styles.label}>Quantidade de vezes lido:</Text>
+            <Text style={styles.info}>{qrCodeData.quantidadeLida}</Text>
+          </View>
+          <View style={styles.card}>
+            <Text style={styles.label}>Localização:</Text>
+            <Text style={styles.info}>{qrCodeData.localizacao}</Text>
+          </View>
+        </ScrollView>
       </View>
-      <View style={styles.card}>
-        <Text style={styles.label}>Data e Hora:</Text>
-        <Text style={styles.info}>{qrCodeData.dataHora}</Text>
-      </View>
-      <View style={styles.card}>
-        <Text style={styles.label}>Quantidade de vezes lido:</Text>
-        <Text style={styles.info}>{qrCodeData.quantidadeLida}</Text>
-      </View>
-      <View style={styles.card}>
-        <Text style={styles.label}>Localização:</Text>
-        <Text style={styles.info}>{qrCodeData.localizacao}</Text>
-      </View>
+
     </View>
   )
 }
@@ -81,5 +93,28 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     color: '#6c13c3'
+  },
+  body: {
+    flex: 1
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingVertical: 15,
+    backgroundColor: '#03b8cf'
+  },
+  appName: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginTop: 25,
+    color: '#000',
+    marginRight: 10
+  },
+  logo: {
+    width: 50,
+    height: 50,
+    marginTop: 14,
+    resizeMode: 'contain',
+    alignItems: 'flex-end'
   }
 })

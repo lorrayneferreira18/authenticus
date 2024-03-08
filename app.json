@@ -7,9 +7,7 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/logoNome.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#000000"
+      "image": "./assets/icon.png"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -20,8 +18,8 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/logoNome.png",
-        "backgroundColor": "#000000"
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#fff"
       },
       "permissions": [
         "android.permission.CAMERA",
@@ -41,6 +39,11 @@
           "recordAudioAndroid": true
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "61761e92-72bd-4ac2-ae35-e66580bd9a30"
+      }
+    }
   }
 }

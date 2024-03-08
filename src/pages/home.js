@@ -25,18 +25,15 @@ const HomePage = () => {
 
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.appName}>Authenticus</Text>
         <Image
           source={require('../../assets/icon.png')}
           style={styles.logo}
         />
+        <Text style={styles.appName}>Authenticus</Text>
       </View>
       <View style={styles.body}>
-        <TouchableNativeFeedback onPress={() => navigation.navigate('QrCode')}>
-          <AntDesign style={styles.qrCode} size={200} name='qrcode' />
-        </TouchableNativeFeedback>
-        <TouchableOpacity>
-          <Text style={styles.text}>Clique no QrCode e inicie a verificação</Text>
+        <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('QrCode')}>
+          <Text style={styles.textoBotao}>Iniciar Verificação</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -51,25 +48,28 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
-    paddingVertical: 20,
-    marginTop: 20,
+    paddingVertical: 15,
     backgroundColor: '#03b8cf'
   },
   appName: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#fff',
+    marginTop: 25,
+    color: '#000',
     marginRight: 10
   },
   logo: {
-    width: 40,
-    height: 40
+    width: 50,
+    height: 50,
+    marginTop: 14,
+    resizeMode: 'contain',
+    alignItems: 'flex-end'
   },
   body: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
+
   },
   image: {
     width: 200,
@@ -79,6 +79,19 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 24,
     color: '#6c13c3'
+  },
+  botao: {
+    backgroundColor: '#03b8cf',
+    borderRadius: 100, // Metade da largura/altura do botão para torná-lo redondo
+    width: 200,
+    height: 200,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  textoBotao: {
+    color: '#000',
+    fontSize: 18,
+    fontWeight: 'bold'
   }
 })
 
